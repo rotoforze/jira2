@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JIRA 2.0</title>
+    <link rel="stylesheet" href="src/css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <!-- inicio de sesión -->
+     <div class="inicioSesion centrar">
+         <form>
+             <h1 class="centrar-texto">Iniciar sesión</h1>
+             <div class="error-inicio-sesion">
+                 <span>Usuario o contraseña incorrectas</span>
+             </div>
+            <div class="campos">
+                <div class="campo-usuario">
+                    <label for="usuario" class="centrar-texto-form">Usuario</label>
+                    <input type="text" id="usuario" name="usuario" autofocus required>
+                </div>
+                <div class="campo-contrasenia">
+                    <label for="contrasena" class="centrar-texto-form">Contraseña</label>
+                    <input type="password" id="contrasena" name="contrasena" required>
+                </div>
+                <button type="button" class="boton-inicio-sesion">Iniciar sesión</button>
+            </div>
+        </form>
+     </div>
+     <!-- app -->
+      <div class="app centrar">
+        <div class="cabecera">
+            <h1 class="titulo">JIRA 2.0</h1>
+            <div class="usuario-info">
+                <span id="nombreUsuario">Nombre de Usuario</span>
+                <button id="cerrarSesion" class="boton-cerrar-sesion"><i class="bi bi-box-arrow-left"></i></button>
+            </div>
+        </div>
+        <div class="contenido-app">
+            <div class="botones-app">
+                <button id="crearProyecto">Crear tarea</button>
+            <button id="cerrarSesion" class="boton-cerrar-sesion-pp">Cerrar Sesión</button>
+            </div>
+            <div class="jira-app">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Por empezar</th>
+                            <th>En progreso</th>
+                            <th>Finalizado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="por-empezar" class="estado-tabla">
+                                
+                            </td>
+                            <td id="en-progreso" class="estado-tabla">
+                                
+                            </td>
+                            <td id="finalizado" class="estado-tabla">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+        </div>
+            <script type="module" src="src/js/main.js"></script>
+        </body>
+        </html>
