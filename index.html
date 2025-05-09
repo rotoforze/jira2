@@ -11,10 +11,12 @@
     <!-- inicio de sesión -->
      <div class="inicioSesion centrar">
          <form>
+            <!-- Mensaje de error en inicio de sesión -->
              <h1 class="centrar-texto">Iniciar sesión</h1>
              <div class="error-inicio-sesion">
                  <span>Usuario o contraseña incorrectas</span>
              </div>
+             <!-- Campos de inicio de sesión -->
             <div class="campos">
                 <div class="campo-usuario">
                     <label for="usuario" class="centrar-texto-form">Usuario</label>
@@ -30,6 +32,7 @@
      </div>
      <!-- app -->
       <div class="app centrar">
+        <!-- La cabecera con el titulo, usuario y logout -->
         <div class="cabecera">
             <h1 class="titulo">JIRA 2.0</h1>
             <div class="usuario-info">
@@ -37,11 +40,14 @@
                 <button id="cerrarSesion" class="boton-cerrar-sesion"><i class="bi bi-box-arrow-left"></i></button>
             </div>
         </div>
+        <!-- Aquí se muestra todo el content de la app -->
         <div class="contenido-app">
+            <!-- Los botones de la app -->
             <div class="botones-app">
                 <button id="crearProyecto">Crear tarea</button>
             <button id="cerrarSesion" class="boton-cerrar-sesion-pp">Cerrar Sesión</button>
             </div>
+            <!-- La aplicación en si, es decir, las secciones -->
             <div class="jira-app">
                 <table>
                     <thead>

@@ -1,5 +1,7 @@
-
 // Mapa de usuarios y contraseñas
+// Este mapa contiene los usuarios y contraseñas de la aplicación
+// En este caso, solo hay dos usuarios: admin y user, ambos con la contraseña "admin" o "user" respectivamente
+// En una aplicación real, esto debería ser una base de datos
 const listaUsuarios = new Map([
     ["admin", "admin"],
     ["user", "user"]
@@ -20,6 +22,8 @@ function cargarApp(user) {
     iniciarSesion.className = "iniciarSesion centrar oculto";
     errorLogeo.className = "error-inicio-sesion oculto";
 
+    // Si el usuario es admin, muestra el botón de crear proyecto
+    // Si el usuario es user, oculta el botón de crear proyecto
     if (user === "admin") {
         document.querySelector("#crearProyecto").setAttribute("style", "display: block;");
     } else document.querySelector("#crearProyecto").setAttribute("style", "display: none;");
@@ -33,6 +37,9 @@ export function iniciarSesion() {
     const nombreUsuario = document.querySelector("#usuario").value;
     const contrasenia = document.querySelector("#contrasena").value;
 
+    // Comprobar si el usuario y la contraseña son correctos
+    // Si son correctos, cargar la app y ocultar el formulario de inicio de sesión
+    // Si no son correctos, mostrar el mensaje de error
     if (listaUsuarios.get(nombreUsuario) === contrasenia) {
         console.log("LOGEADO");
         cargarApp(nombreUsuario);

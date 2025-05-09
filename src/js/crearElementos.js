@@ -1,3 +1,5 @@
+// Array de elementos HTML para la estructura de la tarjeta
+// Se utiliza para crear la tarjeta y añadirla al contenedor correspondiente
 const elemento = [
     '<div class=\"tarjeta-header\"></div>',
     '<div class=\"tarjeta-body\"></div>',
@@ -6,18 +8,25 @@ const elemento = [
 
 import { guardarTodasLasTarjetas } from "./gestorElementosLocalStorage.js";
 
+// Función para crear un nuevo elemento
+// Se utiliza para crear la tarjeta y añadirla al contenedor por emepzar
+// Se utiliza el localStorage para guardar el contador de tarjetas y evitar que se repitan los ids
 export function crearElemento() {
+    // guardamos el contador por-empezar en el localStorage
     const porEmpezar = document.querySelector("#por-empezar");
-    const enProgreso = document.querySelector("#en-progreso");
-    const finalizado = document.querySelector("#finalizado");
 
+    // creamos el div de la tarjeta
+    // le añadimos la clase tarjeta y el id tarjeta + contadorTarjetas
     const div = document.createElement("div");
     div.className = "tarjeta";
     div.draggable = false;
     div.id = "tarjeta"+localStorage.getItem("contadorTarjetas");
 
+    // añadimos la estructura de la tarjeta al div
     for (let i = 0; i < elemento.length; i++) {
         div.innerHTML += elemento[i];
+        // la primera iteración es el header, la segunda el body y la tercera el footer
+        // añadimos el contenido editable al header y al body
         if (i === 0) {
             const tA = document.createElement("div");
             tA.setAttribute("contenteditable", "true");
@@ -36,20 +45,24 @@ export function crearElemento() {
         }
         if (i === 2) {
             div.querySelector(".tarjeta-footer").innerHTML = new Date().getFullYear() + "-" + new Date().getMonth() + "-" + new Date().getDate()+" " + new Date().getHours() + ":" + new Date().getMinutes();
-            
+            // añadir el botón de eliminar y mover a la derecha/izquierda
             crearBotones(div);
         }
     }
 
     // añadir la tarjeta al contenedor correspondiente
     porEmpezar.appendChild(div);
+    // añadimos 1 al contador de tarjetas en el localStorage
+    // si no existe el contador de tarjetas en el localStorage se crea
     localStorage.setItem("contadorTarjetas", parseInt(localStorage.getItem("contadorTarjetas")) + 1);
+    // guardamos la tarjeta en el localStorage
     guardarTodasLasTarjetas();
 }
 
 import { eliminarTarjeta } from "./eliminarElementos.js";
 import { moverALaDerecha } from "./moverElementos.js";
-// añadir evento al botón de eliminar
+// Función para crear los botones de la tarjeta
+// Se utiliza para añadir los botones de eliminar y mover a la derecha/izquierda
 function crearBotones(div) {
     // añadir 3 botones
     const contenedorBotones = document.createElement("div");
